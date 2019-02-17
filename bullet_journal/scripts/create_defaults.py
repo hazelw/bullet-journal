@@ -1,6 +1,6 @@
-from models.collections import Collection
-from constants import collection_types
-
+from ..models.collection import Collection
+from ..constants import collection_types
+from ..db import db
 
 def create_default_collections():
     try:

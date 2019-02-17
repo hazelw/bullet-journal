@@ -1,4 +1,4 @@
-from bullet_journal import db
+from ..db import db
 
 class Collection(db.Model):
     id = db.Column(db.Integer, primary_key=True)
