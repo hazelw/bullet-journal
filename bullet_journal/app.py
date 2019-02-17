@@ -2,6 +2,8 @@ import sqlite3
 from flask import Flask, g
 from flask_sqlalchemy import SQLAlchemy
 
+# TODO: fix this - from .db will work for scripts but ./start.py requires
+# this format
 from db import db
 
 app = Flask(__name__)
@@ -12,5 +14,3 @@ def begin():
     return "<3"
 
 db.init_app(app)
-
-app.run(debug=True, host='0.0.0.0', port=5000)

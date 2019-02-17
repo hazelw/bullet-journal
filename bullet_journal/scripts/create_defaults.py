@@ -1,6 +1,13 @@
 from ..models.collection import Collection
 from ..constants import collection_types
+from ..app import app
 from ..db import db
+
+
+def create_all_defaults():
+    with app.app_context():
+        db.create_all()
+        create_default_collections()
 
 def create_default_collections():
     try:
@@ -18,5 +25,6 @@ def create_default_collections():
         )
         db.session.commit()
     except:
-        print("Unable to add default collections to DB")
+        #print("Unable to add default collections to DB")
         db.session.rollback()
+        raise
